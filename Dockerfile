@@ -1,13 +1,9 @@
 # 使用ubuntu作为基础镜像
 FROM ubuntu:22.04
 
-# 设置中文显示支持
-ENV LANG=C.UTF-8
+
 # 设置时区
 ENV TZ=Asia/Shanghai
-
-# 中文字体
-COPY SimHei.ttf /root
 
 RUN sed -i s@/archive.ubuntu.com/@/mirrors.tuna.tsinghua.edu.cn/@g /etc/apt/sources.list \
     && ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone \
@@ -20,9 +16,13 @@ RUN sed -i s@/archive.ubuntu.com/@/mirrors.tuna.tsinghua.edu.cn/@g /etc/apt/sour
         matplotlib \
         numpy \
         sympy \
-    && mkdir /usr/share/fonts/simhei && mv /root/SimHei.ttf /usr/share/fonts/simhei/
+        mplfonts
 
+# 安装额外的工具
 RUN apt-get install -y curl
+
+# 初始化中文字体库
+RUN mplfonts init
 
 WORKDIR /root/notebook
 

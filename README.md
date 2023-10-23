@@ -2,10 +2,15 @@
 
 自定义 JupyterLab docker 镜像。
 
+## 要求
+
 部署在远程服务器，要求:
 
 - 可以通过 vscode remote 访问服务器
 - 服务器已经安装了 docker
+
+
+## 使用
 
 通过 vscode remote 进入该服务器，执行命令：
 
@@ -32,3 +37,39 @@ jupyterlab  | [C 2023-10-23 15:18:57.925 ServerApp]
 
 ![](./JupyterLab__auto-V_.png)
 
+## 常见问题
+
+### matplotlib 图形显示中文
+
+镜像已经支持 matplotlib 显示中文，使用了 [mplfonts](https://pypi.org/project/mplfonts/)
+
+需要在代码中加入：
+
+```python
+import matplotlib.pyplot as plt
+
+# 设置中文字体
+from mplfonts import use_font
+use_font('SimHei')
+
+# 定义数据
+x = [0, 1]
+y = [0, 1]
+
+# 创建图形对象和坐标轴
+fig, ax = plt.subplots()
+
+# 绘制图形
+ax.plot(x, y)
+
+# 添加标签和标题
+ax.set_xlabel("x轴")
+ax.set_ylabel("y轴")
+ax.set_title("y=x")
+
+# 绘制原点
+ax.plot(0, 0, marker="o", markersize=5, color="red")
+
+# 显示图形
+plt.show()
+```
