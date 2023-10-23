@@ -19,10 +19,16 @@ RUN sed -i s@/archive.ubuntu.com/@/mirrors.tuna.tsinghua.edu.cn/@g /etc/apt/sour
         mplfonts
 
 # 安装额外的工具
-RUN apt-get install -y curl
+RUN apt-get install -y \
+    curl \
+    nano
 
 # 初始化中文字体库
 RUN mplfonts init
+
+# # 设置 git
+# RUN git config --global user.email "you@example.com" \
+#     && git config --global user.name "Your Name"
 
 WORKDIR /root/notebook
 
