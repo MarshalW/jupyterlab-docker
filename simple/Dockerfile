@@ -30,6 +30,9 @@ RUN mplfonts init
 # RUN git config --global user.email "you@example.com" \
 #     && git config --global user.name "Your Name"
 
+# 其他追加的库
+RUN pip install ipywidgets
+
 WORKDIR /root/notebook
 
 EXPOSE 8888

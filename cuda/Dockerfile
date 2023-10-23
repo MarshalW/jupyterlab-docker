@@ -40,6 +40,9 @@ RUN pip3 install \
 # 设置 ssh key
 RUN ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa -q -P ""
 
+# 其他追加的库
+RUN pip install ipywidgets
+
 WORKDIR /root/notebook
 
 EXPOSE 9999
