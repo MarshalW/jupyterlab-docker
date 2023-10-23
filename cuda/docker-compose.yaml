@@ -1,0 +1,14 @@
+version: "3"
+services:
+  jupyterlab:
+    build: .
+    container_name: jupyterlab
+    restart: always
+    tty: true
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
