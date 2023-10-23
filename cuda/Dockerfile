@@ -37,6 +37,9 @@ RUN pip3 install \
 # RUN git config --global user.email "you@example.com" \
 #     && git config --global user.name "Your Name"
 
+# 设置 ssh key
+RUN ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa -q -P ""
+
 WORKDIR /root/notebook
 
 EXPOSE 8888

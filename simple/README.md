@@ -37,6 +37,17 @@ jupyterlab  | [C 2023-10-23 15:18:57.925 ServerApp]
 
 ![](./JupyterLab__auto-V_.png)
 
+如果需要使用 github：
+
+```bash
+# 设置 git
+git config --global user.email "you@example.com"
+git config --global user.name "Your Name"
+
+# 设置 ssh key
+ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa -q -P ""
+```
+
 ## 常见问题
 
 ### matplotlib 图形显示中文
