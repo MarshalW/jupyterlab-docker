@@ -42,6 +42,6 @@ RUN ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa -q -P ""
 
 WORKDIR /root/notebook
 
-EXPOSE 8888
+EXPOSE 9999
 
-CMD ["jupyter","lab","--allow-root","--ip","0.0.0.0","--no-browser"]
+CMD ["jupyter","lab","--allow-root","--ip","0.0.0.0","--no-browser","--port","9999"]
