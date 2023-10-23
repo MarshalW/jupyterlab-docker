@@ -22,10 +22,10 @@ RUN sed -i s@/archive.ubuntu.com/@/mirrors.tuna.tsinghua.edu.cn/@g /etc/apt/sour
         sympy \
     && mkdir /usr/share/fonts/simhei && mv /root/SimHei.ttf /usr/share/fonts/simhei/
 
+RUN apt-get install -y curl
+
 WORKDIR /root/notebook
 
 EXPOSE 8888
 
-CMD ["jupyter","lab","--allow-root"]
-
-
+CMD ["jupyter","lab","--allow-root","--ip","0.0.0.0"]

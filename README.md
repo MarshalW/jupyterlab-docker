@@ -2,12 +2,8 @@
 
 自定义 JupyterLab docker 镜像。
 
-```bash
-# build image
-docker build -t jupyterlab .
+使用：
 
-# run container
-# jupyter lab --allow-root
-docker run -it -p 0.0.0.0:8888:8888 --name=jupyterlab --rm jupyterlab bash
-docker run -it --name=jupyterlab --rm jupyterlab bash
+```bash
+docker compose up -d
 ```
