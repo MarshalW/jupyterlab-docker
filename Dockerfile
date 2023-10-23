@@ -28,4 +28,4 @@ WORKDIR /root/notebook
 
 EXPOSE 8888
 
-CMD ["jupyter","lab","--allow-root","--ip","0.0.0.0"]
+CMD ["jupyter","lab","--allow-root","--ip","0.0.0.0,"--no-browser"]
